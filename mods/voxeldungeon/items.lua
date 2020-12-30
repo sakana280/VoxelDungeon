@@ -244,7 +244,7 @@ entitycontrol.override_entity("__builtin:item", {
 	on_step = function(self, dtime, moveresult)
 		super_on_step(self, dtime, moveresult)
 
-		if voxeldungeon.blobs.get("voxeldungeon:blob_fire", self.object:get_pos()) > 0 then
+		if self.object:get_pos() and voxeldungeon.blobs.get("voxeldungeon:blob_fire", self.object:get_pos()) > 0 then
 			local item = ItemStack(self.itemstring)
 
 			if item:get_definition().groups.flammable then
